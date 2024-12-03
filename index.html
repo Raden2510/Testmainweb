@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftarkan Kamar untuk Pasien</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer>
+        // Fungsi untuk toggle menu sidebar
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    
+        // Fungsi untuk menyembunyikan sidebar saat kursor di luar
+        document.addEventListener('mousemove', (event) => {
+            const sidebar = document.getElementById('sidebar');
+            const menuButton = document.getElementById('menuButton');
+    
+            // Cek jika kursor tidak berada di sidebar atau tombol menu
+            if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+    
+        // Fungsi untuk menampilkan form berdasarkan nomor kamar
+        function showForm(kamar, buttonElement) {
+            // Temukan form di bawah tombol yang diklik
+            const form = buttonElement.nextElementSibling;
+    
+            // Jika form sudah terlihat, sembunyikan
+            if (form.classList.contains("show")) {
+                form.classList.remove("show");
+                return;
+            }
+    
+            // Sembunyikan semua form lain
+            const allForms = document.querySelectorAll(".form-container");
+            allForms.forEach(f => f.classList.remove("show"));
+    
+            // Tampilkan form yang sesuai
+            form.classList.add("show");
+    
+            // Update nomor kamar di form
+            const roomLabel = form.querySelector("#selected-room");
+            roomLabel.innerText = `Nomor Kamar: ${kamar}`;
+        }
+    </script>
+    
+</head>
+<body>
+        <!-- Tombol hamburger -->
+        <button class="menu-button" onclick="toggleMenu()" id="menuButton">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+    
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </div>
+    <header>
+        <h1>Daftarkan Kamar untuk Pasien</h1>
+    </header>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Cari nomor kamar">
+        </div>
+        <div class="room-list">
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(1, this)">Kamar 1</button>
+                <div class="form-container">
+                    <h1 id="selected-room">Nomor Kamar: 1</h1>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-1">Nama Pasien:</label>
+                            <input type="text" id="nama-1" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-1">Usia:</label>
+                            <input type="number" id="usia-1" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-1">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-1" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(2, this)">Kamar 2</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 2</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(3, this)">Kamar 3</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 3</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(4, this)">Kamar 4</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 4</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(5, this)">Kamar 5</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 5</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(6, this)">Kamar 6</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 6</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(7, this)">Kamar 7</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 7</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(8, this)">Kamar 8</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 8</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(9, this)">Kamar 9</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 9</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(10, this)">Kamar 10</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 10</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(11, this)">Kamar 11</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 11</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(12, this)">Kamar 12</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 12</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(13, this)">Kamar 13</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 13</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="room-item-container">
+                <button class="room-item" onclick="showForm(14, this)">Kamar 14</button>
+                <div class="form-container">
+                    <h2 id="selected-room">Nomor Kamar: 14</h2>
+                    <form action="submit_form.php" method="POST">
+                        <div class="input-group">
+                            <label for="nama-2">Nama Pasien:</label>
+                            <input type="text" id="nama-2" name="nama" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="usia-2">Usia:</label>
+                            <input type="number" id="usia-2" name="usia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="penyakit-2">Diagnosa Penyakit:</label>
+                            <input type="text" id="penyakit-2" name="penyakit" required>
+                        </div>
+                        <button type="submit">Daftarkan</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <footer style="padding: 10px;">
+        <h3>Rumah Sakit Umum Daerah Sukabumi</h3>
+            <div style="display: flex; align-items: center;">
+                <img src="1x/Email2.png" alt="Email" class="gambar-email" style="margin-right: 10px;">
+            <p>
+                rsusekarwangi@gmail.com
+            </p>
+            </div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center;">
+                <img src="1x/Location2.png" alt="Location" class="gambar-location" style="margin-right: 10px;">
+                <p>
+                    Jl. Siliwangi No.49, Cibadak, Kec. Cibadak, Kabupaten Sukabumi, Jawa Barat 43351
+                </p>
+            </div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center;">
+                <img src="1x/Instagram2.png" alt="Instagram" class="gambar-instagram" style="margin-right: 10px;">
+                <p>
+                    @rssekarwangi
+                </p>
+            </div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center;">
+                <img src="1x/whatsapp2.png" alt="whatsapp" class="gambar-whatsapp" style="margin-right: 10px;">
+                <p>
+                    +62858-1700-7800
+                </p>
+            </div style="display: flex; align-items: center;">
+        <h3 class="text-footer">
+            <p style="text-align: center;">
+                &copy Rumah Sakit Sekarwangi
+            </p>
+        </h3>
+    </footer>
+</body>
+</html>

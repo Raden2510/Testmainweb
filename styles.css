@@ -1,0 +1,199 @@
+/* Reset dasar untuk body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container utama */
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 50px;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #009fe3;
+}
+
+/* Input pencarian */
+.search-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#searchInput {
+    width: 780px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Daftar kamar */
+.room-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Pastikan tidak ada jarak antar elemen */
+    padding: 0; /* Hapus padding */
+}
+
+/* Container tombol kamar */
+.room-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Hapus jarak antar elemen */
+}
+
+/* Tombol kamar */
+.room-item {
+    background-color: #007bb5;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0; /* Hapus margin */
+}
+
+.room-item:hover {
+    background-color: #005f8a;
+    transform: scale(1.03);
+}
+
+/* Formulir untuk data pasien */
+.form-container {
+    padding: 15px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.form-container.show {
+    max-height: 500px; /* Sesuaikan dengan tinggi konten */
+    opacity: 1;
+}
+
+/* Grup input dalam formulir */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 925px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Tombol submit */
+button[type="submit"] {
+    background-color: #74c047;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #5a9537;
+}
+.gambar-email {
+    width: 40px;
+    height: 30px;
+}
+.gambar-location {
+    width: 30px;
+    height: 40px;
+    padding: 5px;
+}
+footer {
+    height: 400px;
+    background-color: #009fe3;
+    color: white;
+}
+.text-footer {
+    color: white;
+}
+.gambar-instagram{
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+}
+.gambar-whatsapp{
+    width: 45px;
+    height: 45px;
+    padding: 1px;
+}
+.menu-button {
+    position: fixed;
+    top: 60px;
+    left: 40px;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Mulai tersembunyi di luar layar */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+ /* Konten sidebar */
+ .sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar a:hover {
+    background-color: #444;
+}
+
+/* Ketika sidebar aktif */
+.sidebar.active {
+    left:
+     0;
+}
+.menu-button div {
+    width: 70px;
+    height: 7px;
+    background-color: white;
+    border-radius: 5px;
+}
